@@ -1,0 +1,11 @@
+{
+  "name": "falvzhinengti",
+  "version": "1.0.0",
+  "description": "Financial compliance copilot for Chinese legal and fintech scenarios.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/runTests.js"
+  }
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>金科法衡台</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-a"></div>
+    <div class="background-orb orb-b"></div>
+    <main class="app-shell">
+      <section class="hero-panel">
+        <p class="eyebrow">FINTECH LEGAL AGENT</p>
+        <h1>金科法衡台</h1>
+        <p class="hero-copy">
+          面向金融消费者保护与数据合规的文本审查智能体。输入营销文案、用户协议或隐私政策，输出风险点、法律依据与改写建议。
+        </p>
+        <div class="hero-metrics">
+          <div>
+            <span>审查方式</span>
+            <strong>规则 + 本地法规检索</strong>
+          </div>
+          <div>
+            <span>适用范围</span>
+            <strong>金融营销 / 协议 / 隐私</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="card input-card">
+          <div class="card-header">
+            <h2>文本审查台</h2>
+            <p>先做初筛，再追问风险原因或改写方向。</p>
+          </div>
+
+          <form id="audit-form">
+            <div class="field-grid">
+              <label>
+                <span>文档类型</span>
+                <select id="doc-type" name="doc_type">
+                  <option value="marketing_copy">金融营销文案</option>
+                  <option value="product_description">产品说明</option>
+                  <option value="user_agreement">用户协议</option>
+                  <option value="privacy_policy">隐私政策</option>
+                </select>
+              </label>
+
+              <label>
+                <span>业务场景</span>
+                <input
+                  id="scenario"
+                  name="scenario"
+                  type="text"
+                  placeholder="例如：消费贷拉新、支付开户、基金销售"
+                />
+              </label>
+            </div>
+
+            <label class="block-field">
+              <span>待审查文本</span>
+              <textarea
+                id="content"
+                name="content"
+                rows="12"
+                placeholder="示例：本平台贷款秒批，最低日息万二，勾选后即表示同意我们收集定位、通讯录、相册等全部信息。"
+              ></textarea>
+            </label>
+
+            <button id="submit-button" type="submit">开始审查</button>
+          </form>
+        </div>
+
+        <div class="card result-card">
+          <div class="card-header">
+            <h2>审查结果</h2>
+            <p id="status-text">等待提交文本。</p>
+          </div>
+
+          <div id="summary-panel" class="summary-panel empty">
+            <span class="risk-badge neutral">未开始</span>
+            <p>风险概览会显示在这里。</p>
+          </div>
+
+          <div id="risk-list" class="risk-list"></div>
+        </div>
+      </section>
+
+      <section class="card followup-card">
+        <div class="card-header">
+          <h2>追问区</h2>
+          <p>围绕最新一次审查结果继续问“为什么”“先改哪里”“怎么改”。</p>
+        </div>
+
+        <form id="followup-form" class="followup-form">
+          <input
+            id="followup-question"
+            type="text"
+            placeholder="例如：为什么这句话属于误导性宣传？"
+          />
+          <button type="submit">追问</button>
+        </form>
+
+        <div id="chat-log" class="chat-log"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
